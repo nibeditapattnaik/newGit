@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>calC</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+  body{
+   background-color : #006666;
+   }
+  .out{
+	background-color:#F2B4B4;
+	height : "350px";
+	width : "200px";
+	border-style : double;
+	border-color : #009900;
+	border-radius:10px;
+	position:fixed;
+	top:80px;
+	left:40%;
+	}
+	.display{
+		background-color:#bccd95;
+		width : 180px;
+		position : relative;
+		left : 15px;
+		top : 10px;
+		height : 30px;
+	}
+	.display input
+	{
+		position:relative;
+		width : 180px;
+		left:2px;
+		top:2px;
+		height:30px;
+		color:black;
+		background-color:#bccd95;
+		font-size:21px;
+		text-align:right;
+	} 
+	.keys
+	{
+		position:relative;
+		top:15px;
+	}
+	.button
+	{
+		width:35px;
+		height:30px;
+		border:none;
+		border-radius:8px;
+		margin-left:17px;
+		cursor:pointer;
+		border-top:2px solid transparent;
+	}
+	.button.gray
+	{
+		color:white;
+		background-color:#6f6f6f;
+		border-bottom:black 2px solid;
+		border-top:2px #6f6f6f solid;
+	}
+	.button.blue
+	{
+		color:black;
+		background-color:#3AA258;
+		border-bottom:black 2px solid;
+	}
+	.button.black
+	{
+		color:grey;
+		background-color:303030;
+		border-bottom:black 2px solid;
+		border-top:2px 303030 solid;
+	}
+	.gray:active
+	{
+		border-top:black 2px solid;
+		border-bottom:2px #6f6f6f solid;
+	}
+	.blue:active
+	{
+		border-top:black 2px solid;
+		border-bottom:#ff4561 2px solid;
+	}
+	.black:active
+	{
+		border-top:black 2px solid;
+		border-bottom:#303030 2px solid;
+	}
+p
+{
+line-height:10px;
+}
+</style>
+<script type = "text/javascript"> 
+	function c(val) //Activate when you click on any button having onclick=c("")
+	{
+		document.getElementById("d").value=val; //d is the id value for text box 
+	}
+	function v(val) //Activate when you click any button having onclick=v("--")
+	{
+		document.getElementById("d").value+=val;//cancatenate the button values you entered as an expression
+	}
+	function e() //Activate when you click on onclick=e("") i.e. = button
+	{ 
+		try 
+		{ 
+		c(eval(document.getElementById("d").value)) //Calculate the value according to the expression entered in text box
+		} 
+		catch(e) 
+		{
+		c('Error') //display error 
+		} 
+	} 
+</script>
+</head>
+<body>
+<div class="out">
+<div class="display">
+<input type="text" readonly size="20" id="d">
+</div><!-- end of div="display" -->
+<div class="keys">
+   <center>
+    <p>
+	<input type="button" class="button black" value="C"  onclick='c("")'>&nbsp;&nbsp;
+	<input type="button" class="button black" value="=" onclick='e()'>
+	</p>
+	 
+    <p>
+	<input type="button" class="button black" value="7" onclick='v("7")'>
+	<input type="button" class="button black" value="8" onclick='v("8")'>
+    <input type="button" class="button black" value="9" onclick='v("9")'>
+	<input type="button" class="button blue" value="/" onclick='v("/")'>
+	</p>
+	
+    <p>
+	<input type="button" class="button black" value="4" onclick='v("4")'>
+	<input type="button" class="button black" value="5" onclick='v("5")'>
+    <input type="button" class="button black" value="6" onclick='v("6")'>
+	<input type="button" class="button blue" value="*" onclick='v("*")'>
+	</p>
+    
+	<p>
+	<input type="button" class="button black" value="1" onclick='v("1")'>
+	<input type="button" class="button black" value="2" onclick='v("2")'>
+    <input type="button" class="button black" value="3" onclick='v("3")'>
+	<input type="button" class="button blue" value="-" onclick='v("-")'>
+	</p>
+	
+    <p>
+	<input type="button" class="button black" value="0" onclick='v("0")'>
+	<input type="button" class="button black" value="." onclick='v(".")'>
+	<input type="button" class="button blue" value="+" onclick='v("+")'>
+    
+	</p>
+   </center>
+</div><!-- end of div="keys" -->
+</div><!-- end of div="out" -->
+
+
+</body>
+</html>
